@@ -12,6 +12,8 @@ dispatcher:
     - ./config/dispatcher:/config
 db:
   image: tenforce/virtuoso:virtuoso-v7.2.0-latest
+  volumes:
+    - ./data/db:/var/lib/virtuoso/db
   environment:
     SPARQL_UPDATE: "true"
   ports:
