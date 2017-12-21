@@ -1,0 +1,609 @@
+List of graphs and the types/predicates they contain, as of December 2017.
+
+To help with data cleanup.
+
+* namespaces
+PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
+PREFIX yds: <http://yourdatastories.eu/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX adms: <http://www.w3.org/ns/adms#>
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX fao: <http://www.fao.org/countryprofiles/geoinfo/geopolitical/resource/>
+PREFIX org: <http://www.w3.org/ns/org#>
+PREFIX elodgeo: <http://linkedeconomy.org/geoOntology#>
+PREFIX rov: <http://www.w3.org/ns/regorg#>
+PREFIX geosparql: <http://www.opengis.net/ont/geosparql#>
+PREFIX sf: <http://www.opengis.net/ont/sf#>
+PREFIX pc: <http://purl.org/procurement/public-contracts#>
+PREFIX gr: <http://purl.org/goodrelations/v1#>
+PREFIX elod: <http://linkedeconomy.org/ontology#>
+PREFIX vcard: <http://www.w3.org/2006/vcard/ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX dctype: <http://purl.org/dc/dcmitype/>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX rm: <http://mu.semte.ch/vocabularies/logical-delete/>
+PREFIX typedLiterals: <http://mu.semte.ch/vocabularies/typed-literals/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX app: <http://mu.semte.ch/app/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+** new ones
+PREFIX elodtraffic: <http://linkedeconomy.org/ontology/traffic#>
+PREFIX dcmi: <http://purl.org/dc/elements/1.1/>
+PREFIX void: <http://rdfs.org/ns/void#>
+PREFIX skosxl: <http://www.w3.org/2008/05/skos-xl#>
+
+* <http://yourdatastories.eu/uuids>
+
+* <http://yourdatastories.eu/taxonomies/eurovoc>
+** resources
+   - dataset
+   - distribution
+** types
+   - skos:Concept
+   - skosxl:Label
+   - dcat:Distribution*
+   - owl:AnnotationProperty
+   - foaf:Image
+   - void:Dataset
+   - dcat:Dataset*
+   - void:Linkset
+   - owl:SymmetricProperty
+   - owl:TransitiveProperty
+   - owl:ObjectProperty
+   - skos:ConceptScheme
+   - http://eurovoc.europa.eu/schema#Country
+   - dcat:DatasetDescription
+** predicates
+   - rdf:type
+   - rdfs:subPropertyOf
+   - dct:created
+   - dct:modified
+   - rdfs:label
+   - rdfs:domain
+   - rdfs:comment
+   - owl:versionInfo
+   - skos:historyNote
+   - skos:scopeNote
+   - skos:broader
+   - rdf:value
+   - skos:prefLabel
+   - dct:title
+   - foaf:depiction
+   - dct:identifier
+   - dcmi:identifier
+   - dcmi:language
+   - dct:creator
+   - dct:language
+   - dct:type
+   - foaf:page
+   - dct:publisher
+   - void:usedBy
+   - skos:hasTopConcept
+   - skos:inScheme
+   - skos:topConceptOf
+   - dct:issued
+   - skosxl:altLabel
+   - skos:notation
+   - skosxl:prefLabel
+   - skosxl:literalForm
+   - dct:subject
+   - dct:hasPart
+   - skos:definition
+   - skos:altLabel
+   - http://art.uniroma2.it/ontologies/vocbench#hasStatus
+   - http://lexvo.org/ontology#shortFormFor
+   - http://purl.org/iso25964/skos-thes#status
+   - http://eurovoc.europa.eu/schema#isoCountryCode
+   - http://lexvo.org/ontology#acronymFor
+   - http://lexvo.org/ontology#longFormFor
+   - dct:isReplacedBy
+   - dct:replaces
+   - http://www.w3.org/ns/prov#generatedAtTime
+   - skos:related
+   - skos:toConceptOf
+   - dcat:contactPoint
+   - dcat:distribution
+   - void:feature
+   - void:reliesOn
+   - void:uriLookupEndpoint
+   - void:uriRegexPattern
+   - void:uriSpace
+   - http://eurovoc.europa.eu/schema#versionInfo
+   - http://art.uniroma2.it/ontologies/vocbench#hasLink
+   - http://art.uniroma2.it/ontologies/vocbench#hasSource
+   - dct:isPartOf
+   - dct:licence
+   - dct:rightsHolder
+   - adms:status
+   - dcat:downloadURL
+   - dcat:mediaType
+   - vcard:hasUrl
+   - void:linkPredicate
+   - void:objectsTarget
+   - void:subjectsTarget   
+* <http://yourdatastories.eu/ontology>
+** types
+   - owl:ObjectProperty
+   - rdfs:Datatype
+   - owl:DatatypeProperty
+   - owl:AnnotationProperty
+   - owl:Class
+   - owl:Ontology
+   - 
+** predicates
+   - rdf:type
+   - rdfs:subPropertyOf
+   - owl:inverseOf
+   - rdfs:label
+   - rdfs:domain
+   - rdfs:range
+   - rdfs:comment
+   - owl:versionInfo
+   - rdfs:seeAlso
+   - rdfs:subClassOf
+   - dcmi:title
+   - foaf:homepage
+   - dct:creator
+   - elod:creator
+   - rdf:first
+   - rdf:rest
+   - owl:unionOf
+* <http://yourdatastories.eu/taxonomies>
+** types
+   - skos:ConceptScheme
+   - skos:Concept
+   - elodgeo:Region
+   - elod:OrganizationStatus
+   - elod:OrganizationCategory
+   - org:Role
+   - elod:ThematicCategory
+   - elod:BudgetKind
+   - elod:DecisionStatus
+   - elod:OrganizationDomain
+   - elod:OrganizationalUnitCategory
+   - elod:VatType
+   - elod:CPV
+   - elod:BudgetCategory
+   - http://purl.org/linked-data/sdmx#Concept
+   - http://purl.org/linked-data/sdmx/2009/code#Freq
+   - owl:Class
+   - rdfs:Class
+   - http://purl.org/linked-data/sdmx#CodeList
+   - http://purl.org/linked-data/sdmx/2009/code#ConfStatus
+   - http://purl.org/linked-data/sdmx/2009/code#Decimals
+   - http://purl.org/linked-data/sdmx/2009/code#ObsStatus
+   - http://purl.org/linked-data/sdmx/2009/code#Sex
+   - http://purl.org/linked-data/sdmx/2009/code#TimeFormat
+   - http://purl.org/linked-data/sdmx/2009/code#UnitMult
+     - 
+** predicates
+   - rdf:type
+   - rdfs:label
+   - rdfs:comment
+   - rdfs:seeAlso
+   - rdfs:subClassOf
+   - skos:broader
+   - skos:narrower
+   - skos:prefLabel
+   - skos:hasTopConcept
+   - skos:inScheme
+   - skos:topConceptOf
+   - skos:note
+   - skos:notation
+   - skos:definition
+   - skos:altLabel
+   - elod:countryIsoCode
+   - elodgeo:name
+
+* <http://yourdatastories.eu/catalog>
+** resources
+   - catalog
+   - dataset
+   - distribution
+   - Organization
+** types
+   - dcat:Dataset
+   - foaf:Organization
+   - vcard:Organization
+   - dcat:Catalog
+   - dct:LicenseDocument
+   - dcat:Distribution
+   - dct:PeriodOfTime
+** predicates
+   - rdf:type
+   - dct:modified
+   - rdfs:label
+   - rdfs:comment
+   - owl:versionInfo
+   - foaf:name
+   - dct:title
+   - dct:description
+   - dct:identifier
+   - dct:format
+   - dct:type
+   - dct:publisher
+   - http://schema.org/endDate
+   - http://schema.org/startDate
+   - dct:issued
+   - adms:versionNotes
+   - dcat:accessURL
+   - dcat:contactPoint
+   - dcat:dataset
+   - dcat:distribution
+   - dcat:keyword
+   - dcat:themeTaxonomy
+   - dct:accrualPeriodicity
+   - dct:license
+   - dct:provenance
+   - dct:temporal
+   - dct:theme
+
+* <http://yourdatastories.eu/countries>
+** resources
+   - country
+** types
+   - fao:self_governing
+   - elod:Country
+   - skos:Concept
+   - fao:non_self_governing
+   - fao:other
+   - skos:ConceptScheme
+
+** predicates
+   - rdf:type
+   - rdfs:comment
+   - owl:sameAs
+   - foaf:name
+   - skos:prefLabel
+   - foaf:depiction
+   - fao:HDINotes
+   - fao:HDITotal
+   - fao:HDIYear
+   - fao:codeAGROVOC
+   - fao:codeFAOSTAT
+   - fao:codeFAOTERM
+   - fao:codeGAUL
+   - fao:codeISO2
+   - fao:codeISO3
+   - fao:codeUN
+   - fao:codeUNDP
+   - fao:hasBorderWith
+   - fao:hasMaxLatitude
+   - fao:hasMaxLongitude
+   - fao:hasMinLatitude
+   - fao:hasMinLongitude
+   - fao:isAdministeredBy
+   - fao:isInGroup
+   - fao:isSuccessorOf
+   - fao:nationality
+   - fao:validUntil
+   - skos:inScheme
+   - elod:hasCurrency
+   - dbo:foundingDate
+   - dbo:language
+   - dbo:percentageOfAreaWater
+   - skos:notation
+   - skos:altLabel
+   - fao:codeDBPediaID
+   - fao:isPredecessorOf
+
+* <http://yourdatastories.eu/WorldFactbook>
+** types
+   - skos:Concept
+   - skos:ConceptScheme
+** predicates
+   - elod:hasNaturalResource
+   - elod:hasAgriculturalProduct
+   - elod:hasIndustry
+   - rdf:type
+   - skos:prefLabel
+   - skos:inScheme
+
+* <http://yourdatastories.eu/WDI>
+** resources
+   - amount
+   - financial-indicator
+   - non-financial-indicator
+** types
+   - elod:Amount
+   - elod:NonFinancialIndicator
+   - elod:FinancialIndicator
+   - 
+** predicates
+   - rdf:type
+   - elod:amount
+   - elod:hasCurrency
+   - elod:hasCurrencyValue
+   - elod:financialYear
+   - elod:concerns
+   - elod:hasValue
+   - elod:hasStatisticalIndicator
+* <http://yourdatastories.eu/OpenCorporates>
+** types
+   - foaf:Document
+   - http://purl.org/dc/dcmitype/Text
+   - adms:Identifier
+   - http://s.opencalais.com/1/type/er/Company
+   - rov:RegisteredOrganization
+   - org:Site
+   - http://www.w3.org/ns/locn#Address
+   - 
+** predicates
+   - rdf:type
+   - dct:created
+   - dct:modified
+   - rdfs:label
+   - owl:sameAs
+   - dct:title
+   - dct:format
+   - dct:hasFormat
+   - dct:isFormatOf
+   - foaf:primaryTopic
+   - vcard:adr
+   - rov:legalName
+   - rov:registration
+   - org:hasRegisteredSite
+   - org:siteAddress
+   - adms:schemaAgency
+   - http://opencorporates.com/vocab/0.1#companyType
+   - http://opencorporates.com/vocab/0.1#companyStatus
+   - http://opencorporates.com/vocab/0.1#legalName
+   - rov:orgStatus
+   - dct:issued
+   - skos:notation
+   - rov:orgType
+   - skos:closeMatch
+   - vcard:extended-address
+   - http://www.w3.org/ns/locn#fullAddress
+
+* <http://yourdatastories.eu/regions>
+** types
+   - skos:Concept
+   - skos:ConceptScheme
+** predicates
+   - elod:inDevelopmentRegion
+   - rdf:type
+   - skos:prefLabel
+   - skos:inScheme
+   - skos:notation
+   - skos:altLabel
+
+* <http://yourdatastories.eu/HDI>
+** resources
+   - non-financial-indicator
+** types
+   - elod:NonFinancialIndicator
+   - http://www.w3.org/2004/02/skos/Concept   
+** predicates
+   - rdf:type
+   - elod:financialYear
+   - elod:concerns
+   - elod:hasValue
+   - http://www.w3.org/2004/02/skos/definition
+   - http://www.w3.org/2004/02/skos/notation
+   - http://www.w3.org/2004/02/skos/note
+   - http://www.w3.org/2004/02/skos/prefLabel
+
+* <http://yourdatastories.eu/ODA/NL> 
+** resources
+   - aid-activity
+   - organization
+   - amount
+   - committed-item
+   - disbursed-item
+** types
+   - elod:CommittedItem
+   - elod:DisbursedItem
+   - elod:Amount
+   - gr:BusinessEntity
+   - foaf:Organization
+   - rov:RegisteredOrganization
+   - org:Organization
+   - elod:AidActivity
+** predicates
+   - rdf:type
+   - foaf:name
+   - dct:title
+   - dct:description
+   - elod:amount
+   - elod:benefactor
+   - elod:hasCurrency
+   - elod:hasCurrencyValue
+   - elod:hasRelatedCommittedItem
+   - elod:endDate
+   - elod:startDate
+   - elod:aidType
+   - elod:activityStatusType
+   - elod:collaborationType
+   - elod:financeType
+   - elod:flowType
+   - elod:hasRelatedDisbursedItem
+   - elod:plannedEndDate
+   - elod:plannedStartDate
+   - elod:regionCode
+   - elod:beneficiary
+   - elod:sector
+   - elod:countryIsoCode
+   - elod:projectId
+   - elod:refCode
+   - rov:orgType
+* <http://yourdatastories.eu/ODA/ZW> 
+** resources
+   - aid-activity
+   - organization
+   - amount
+   - committed-item
+   - disbursed-item
+** types
+   - elod:CommittedItem
+   - elod:DisbursedItem
+   - elod:Amount
+   - org:Organization
+   - gr:BusinessEntity
+   - foaf:Organization
+   - rov:RegisteredOrganization
+   - elod:AidActivity
+
+** predicates
+   - rdf:type
+   - foaf:name
+   - dct:title
+   - dct:description
+   - elod:amount
+   - elod:benefactor
+   - elod:hasCurrency
+   - elod:hasCurrencyValue
+   - elod:hasRelatedCommittedItem
+   - elod:endDate
+   - elod:startDate
+   - elod:aidType
+   - elod:activityStatusType
+   - elod:collaborationType
+   - elod:financeType
+   - elod:flowType
+   - elod:hasRelatedDisbursedItem
+   - elod:plannedEndDate
+   - elod:plannedStartDate
+   - elod:regionCode
+   - elod:beneficiary
+   - elod:sector
+   - elod:countryIsoCode
+   - elod:projectId
+   - elod:refCode
+   - rov:orgType
+
+* <http://yourdatastories.eu/trade/NL>
+** resources
+   - amount
+   - trade-activity
+** types
+   - elod:Amount
+   - elod:TradeActivity
+** predicates
+   - rdf:type
+   - elod:amount
+   - elod:hasCurrency
+   - elod:hasCurrencyValue
+   - elod:financialYear
+   - elod:hasOrigin
+   - elod:concerns
+   - elod:hasDestination
+
+* <http://yourdatastories.eu/trade/ZW>
+** resources
+   - amount
+   - trade-activity
+** types
+   - elod:Amount
+   - elod:TradeActivity
+** predicates 
+   - rdf:type
+   - elod:amount
+   - elod:hasCurrency
+   - elod:hasCurrencyValue
+   - elod:financialYear
+   - elod:hasOrigin
+   - elod:concerns
+   - elod:hasDestination
+
+* <http://yourdatastories.eu/tradeagents>
+** resources
+   - group-national-agent
+** types
+   - elod:GroupNationalAgent
+** predicates
+   - rdf:type
+   - elod:countryIsoCode
+
+* <http://yourdatastories.eu/TEDUpdate
+** resources
+   - organization
+   - price-specification
+   - address
+   - contract
+   - award-criteria-combination
+   - criterion-weighting
+** types
+   - pc:AwardCriteriaCombination
+   - pc:Contract
+   - pc:CriterionWeighting
+   - gr:UnitPriceSpecification
+   - vcard:Address
+   - gr:BusinessEntity
+   - foaf:Organization
+   - rov:RegisteredOrganization
+   - org:Organization
+   - skos:Concept
+
+** predicates 
+   - rdf:type
+   - gr:hasCurrencyValue
+   - foaf:name
+   - skos:prefLabel
+   - dct:title
+   - vcard:locality
+   - elod:contractId
+   - pc:authorityKind
+   - pc:awardDate
+   - pc:estimatedPrice
+   - elod:hasNutsCode
+   - vcard:hasAddress
+   - elod:buyer
+   - elod:hasCurrency
+   - elod:seller
+   - pc:agreedPrice
+   - pc:kind
+   - pc:mainObject
+   - pc:awardCriteriaCombination
+   - pc:awardCriterion
+   - dct:issued
+   - pc:additionalObject
+   - elod:documentUrl
+   - elod:financialYear
+   - pc:criterionWeight
+   - pc:procedureType
+   - pc:weightedCriterion
+   - vcard:street-address
+   - gr:valueAddedTaxIncluded
+   - pc:numberOfTenders
+   - pc:duration
+   - pc:estimatedEndDate
+   - pc:startDate
+   - pc:tenderDeadline
+   - elod:documentType
+   - gr:vatID
+   - vcard:postal-code
+   - elod:countryIsoCode
+   - elod:isMatched
+   - elod:riskError
+   - elod:numberOfContractors
+
+* <http://yourdatastories.eu/galwayTraffic>>
+** types
+   - elodtraffic:<ObservationPoint
+   - elodtraffic:TrafficObservation
+   - elodtraffic:TrafficSite
+   - elodtraffic:TrafficDirection
+   - elodtraffic:VehicleType
+
+** predicates 
+   - rdf:type
+   - rdfs:label
+   - dct:title
+   - elod:hasRelatedFeature
+   - geosparql#asWKT
+   - geosparql#hasGeometry
+   - elodtraffic:observationStart
+   - elodtraffic:trafficCnt
+   - elodtraffic:dayOfWeek
+   - elodtraffic:vehicleType
+   - elodtraffic:directed
+   - elodtraffic:observationEnd
+   - elodtraffic:onPoint
+   - elodtraffic:includesObservationPoint
+   - elodtraffic:underWork
+<
