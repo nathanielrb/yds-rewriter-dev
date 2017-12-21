@@ -1,51 +1,49 @@
-version: "2"
-services:
-  identifier:
-    image: semtech/mu-identifier
-    links:
-      - dispatcher:dispatcher
-    ports:
-      - "8011:80"
-  dispatcher:
-    image: semtech/mu-dispatcher
-    links:
-      - resource:resource
-    volumes:
-      - ./config/dispatcher:/config
-  oldresource:
-    image: nathanielrb/mu-cl-resources:feature-type-declarations
-    extra_hosts:
-     - "database:143.233.226.60"
-    volumes:
-      - ./config/resources:/config
-    ports:
-      - "8083:80"
-    environment:
-      MU_APPLICATION_GRAPH: "http://yourdatastories.eu/test"
-  resource:
-    image: nathanielrb/mu-cl-resources:feature-type-declarations
-    links:
-      - rewriter:database
-    volumes:
-      - ./config/resources:/config
-    ports:
-      - "8082:80"
-      - "4006:4005"
-    environment:
-      MU_APPLICATION_GRAPH: "http://yourdatastories.eu/test"
-      MU_DECLARE_RESOURCE_TYPES: "true"
-  rewriter:
-    image: bde2020/mu-query-rewriter
-    extra_hosts:
-      - "database:143.233.226.60"
-    environment:
-      REWRITE_SELECT_QUERIES: "true"
-      PLUGIN: "_generate"
-      DEBUG: "false"
-      DEBUG_LOGGING: "true"
-    volumes:
-      - ./config/rewriter:/config
-      - ./config/resources:/resources
-    ports:
-      - "4027:8890"
+identifier:
+  image: semtech/mu-identifier
+  links:
+    - dispatcher:dispatcher
+  ports:
+    - "8011:80"
+dispatcher:
+  image: semtech/mu-dispatcher
+  links:
+    - resource:resource
+  volumes:
+    - ./config/dispatcher:/config
+oldresource:
+  image: nathanielrb/mu-cl-resources:feature-type-declarations
+  extra_hosts:
+   - "database:143.233.226.60"
+  volumes:
+    - ./config/resources:/config
+  ports:
+    - "8083:80"
+  environment:
+    MU_APPLICATION_GRAPH: "http://yourdatastories.eu/test"
+resource:
+  image: nathanielrb/mu-cl-resources:feature-type-declarations
+  links:
+    - rewriter:database
+  volumes:
+    - ./config/resources:/config
+  ports:
+    - "8082:80"
+    - "4006:4005"
+  environment:
+    MU_APPLICATION_GRAPH: "http://yourdatastories.eu/test"
+    MU_DECLARE_RESOURCE_TYPES: "true"
+rewriter:
+  image: bde2020/mu-query-rewriter
+  extra_hosts:
+    - "database:143.233.226.60"
+  environment:
+    REWRITE_SELECT_QUERIES: "true"
+    PLUGIN: "_generate"
+    DEBUG: "false"
+    DEBUG_LOGGING: "true"
+  volumes:
+    - ./config/rewriter:/config
+    - ./config/resources:/resources
+  ports:
+    - "4027:8890"
 
