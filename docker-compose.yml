@@ -12,8 +12,8 @@ dispatcher:
     - ./config/dispatcher:/config
 rewriter:
   image: bde2020/mu-query-rewriter
-  extra_hosts:
-   - "database:localhost"
+  external-links:
+   - virtuoso:database
   environment:
     REWRITE_SELECT_QUERIES: "true"
     PLUGIN: "uuids"
@@ -38,8 +38,8 @@ resource:
     MU_DECLARE_RESOURCE_TYPES: "true"
 oldresource:
   image: nathanielrb/mu-cl-resources
-  extra_hosts:
-   - "database:localhost"
+  external-links:
+   - virtuoso:database
   volumes:
     - ./config/resources:/config
   ports:
