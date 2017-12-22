@@ -8,10 +8,11 @@ dispatcher:
   image: semtech/mu-dispatcher
   links:
     - resource:resource
+    - rewriter:rewriter
   volumes:
     - ./config/dispatcher:/config
 oldresource:
-  image: nathanielrb/mu-cl-resources:feature-type-declarations
+  image: nathanielrb/mu-cl-resources
   extra_hosts:
    - "database:143.233.226.60"
   volumes:
@@ -20,8 +21,23 @@ oldresource:
     - "8083:80"
   environment:
     MU_APPLICATION_GRAPH: "http://yourdatastories.eu/test"
+rewriter:
+  image: bde2020/mu-query-rewriter
+  extra_hosts:
+    - "database:143.233.226.60"
+  environment:
+    REWRITE_SELECT_QUERIES: "true"
+    PLUGIN: "uuids"
+    DEBUG: "false"
+    DEBUG_LOGGING: "true"
+    MESSAGE_LOGGING: "true"
+  volumes:
+    - ./config/rewriter:/config
+    - ./config/resources:/resources
+  ports:
+    - "4027:8890"
 resource:
-  image: nathanielrb/mu-cl-resources:feature-type-declarations
+  image: nathanielrb/mu-cl-resources
   links:
     - rewriter:database
   volumes:
@@ -32,18 +48,3 @@ resource:
   environment:
     MU_APPLICATION_GRAPH: "http://yourdatastories.eu/test"
     MU_DECLARE_RESOURCE_TYPES: "true"
-rewriter:
-  image: bde2020/mu-query-rewriter
-  extra_hosts:
-    - "database:143.233.226.60"
-  environment:
-    REWRITE_SELECT_QUERIES: "true"
-    PLUGIN: "_generate"
-    DEBUG: "false"
-    DEBUG_LOGGING: "true"
-  volumes:
-    - ./config/rewriter:/config
-    - ./config/resources:/resources
-  ports:
-    - "4027:8890"
-

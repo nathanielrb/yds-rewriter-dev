@@ -196,10 +196,6 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://resource/postal-code-areas/"
   end  
   
-   match "/decisions/*path" do
-    Proxy.forward conn, path, "http://resource/decisions/"
-  end  
- 
  match "/organizational-units/*path" do
     Proxy.forward conn, path, "http://resource/organizational-units/"
   end  
@@ -208,10 +204,6 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://resource/people/"
   end  
   
-   match "/non-financial-decisions/*path" do
-    Proxy.forward conn, path, "http://resource/non-financial-decisions/"
-  end  
-
   match "/organization-statuses/*path" do
     Proxy.forward conn, path, "http://resource/organization-statuses/"
   end  
@@ -260,8 +252,9 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://resource/non-financial-indicators/"
   end  
 
+  # for the Rewriter Sandbox
   match "/as/*path" do
-    Proxy.forward conn, path, "http://as:8890/"
+    Proxy.forward conn, path, "http://rewriter:8890/"
   end
 
   match _ do
