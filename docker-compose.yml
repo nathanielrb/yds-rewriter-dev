@@ -10,18 +10,22 @@ dispatcher:
     - resource:resource
   volumes:
     - ./config/dispatcher:/config
-oldresource:
-  image: nathanielrb/mu-cl-resources:feature-type-declarations
-  links:
-    - db:database
-  volumes:
-    - ./config/resources:/config
-  ports:
-    - "8083:80"
+rewriter:
+  image: bde2020/mu-query-rewriter
+  extra_hosts:
+   - "database:localhost"
   environment:
-    MU_APPLICATION_GRAPH: "http://yourdatastories.eu/test"
+    REWRITE_SELECT_QUERIES: "true"
+    PLUGIN: "uuids"
+    DEBUG_LOGGING: "true"
+    MESSAGE_LOGGING: "true"
+  volumes:
+    - ./config/rewriter:/config
+    - ./config/resources:/resources
+  ports:
+    - "4027:8890"
 resource:
-  image: nathanielrb/mu-cl-resources:feature-type-declarations
+  image: nathanielrb/mu-cl-resources
   links:
     - rewriter:database
   volumes:
@@ -32,25 +36,13 @@ resource:
   environment:
     MU_APPLICATION_GRAPH: "http://yourdatastories.eu/test"
     MU_DECLARE_RESOURCE_TYPES: "true"
-rewriter:
-  image: bde2020/mu-query-rewriter
-  links:
-    - db:database
-  environment:
-    REWRITE_SELECT_QUERIES: "true"
-    PLUGIN: "_generate"
+oldresource:
+  image: nathanielrb/mu-cl-resources
+  extra_hosts:
+   - "database:localhost"
   volumes:
-    - ./config/rewriter:/config
-    - ./config/resources:/resources
+    - ./config/resources:/config
   ports:
-    - "4027:8890"
-db:
-  image: tenforce/virtuoso:1.0.0-virtuoso7.2.0-latest
+    - "8083:80"
   environment:
-    SPARQL_UPDATE: "true"
-    DEFAULT_GRAPH: "http://mu.semte.ch/application"
-  ports:
-    - "8890:8890"
-  volumes:
-    - ./data/db:/data
-
+    MU_APPLICATION_GRAPH: "http://yourdatastories.eu/test"
