@@ -23,6 +23,7 @@ oldresource:
     MU_APPLICATION_GRAPH: "http://yourdatastories.eu/test"
 rewriter:
   image: bde2020/mu-query-rewriter
+  restart: on-failure
   extra_hosts:
     - "database:143.233.226.60"
   environment:
